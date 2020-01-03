@@ -2,13 +2,12 @@
 #include <iostream>
 
 // Class constructor
-ArrayList::ArrayList(int cap){
-    int* newArr = new int[cap++];
-    //record capacity in first element
-    newArr[0] = cap;
+ArrayList::ArrayList(int init_cap){
+    int* newArr = new int[init_cap];
     ArrayList::arr = newArr;
+    ArrayList::cap = init_cap;
 };
 
 int ArrayList::capacity() const{
-    return arr[0] - 1;
+    return cap;
 };
