@@ -6,6 +6,7 @@ class ArrayList{
         int cap;
         // Class constructor
         int* arr = new int[0];
+        int* arr2 = new int[0];
         ArrayList(int cap);
         // Adds the given value to the "end" of the list.
         // An append of 7 to a list containing [1, 5, 14] will result in a list
