@@ -4,22 +4,12 @@
 TEST(all_tests, testAppend){
     ArrayList al(5);
 
-    for (int i = 0; i < al.capacity(); ++i) {
-		al.arr[i] = i;
-        std::cout << al.arr[i] << std::endl;
-	}
-
-    al.arr[4] = 10;
-
-    EXPECT_EQ(al.arr[al.capacity()-1], 10);
-
     int testVal = 777;
     al.append(testVal);
 
-    EXPECT_EQ(al.arr[al.capacity()-1], 777);
-    EXPECT_EQ(al.capacity(), 6);
-    
-    for (int i = 0; i < al.capacity(); ++i) {
-        std::cout << al.arr[i] << std::endl;
-	}
+    std::cout << al.arr[0] << std::endl;
+    std::cout << al.getSize() << std::endl;
+
+    EXPECT_EQ(al.getSize(), 1);
+    EXPECT_EQ(al.arr[al.getSize()-1], 777);
 }

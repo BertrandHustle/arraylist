@@ -3,7 +3,10 @@
 #include <string>
 class ArrayList{
     public:
+        // max capacity of the arraylist
         int cap;
+        // size of the arraylist (number of used elements)
+        size_t size;
         // Class constructor
         int* arr = new int[0];
         ArrayList(int cap);
@@ -22,7 +25,7 @@ class ArrayList{
         // containing [1, 7, 5, 14]
         void insert(size_t index, int value);
         // Returns the current number of elements in the list.
-        size_t size() const;
+        size_t getSize() const;
         // Returns the value of the list at the given index. The given index must be
         // less than size.
         int valueAt(size_t index) const;
