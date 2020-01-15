@@ -1,6 +1,7 @@
 #include "arraylist.h"
 #include <iostream>
 
+// comment
 // Class constructor
 ArrayList::ArrayList(int init_cap){
     int* newArr = new int[init_cap];
