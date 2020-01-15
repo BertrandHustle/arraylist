@@ -1,7 +1,6 @@
 #include "arraylist.h"
 #include <iostream>
 
-// comment
 // Class constructor
 ArrayList::ArrayList(int init_cap){
     int* newArr = new int[init_cap];
@@ -15,7 +14,7 @@ int ArrayList::capacity() const{
 };
 
 size_t ArrayList::getSize() const {
-    return ArrayList::size;
+    return size;
 }
 
 std::string ArrayList::toString() const {
@@ -33,20 +32,17 @@ std::string ArrayList::toString() const {
 
 void ArrayList::append(int value){
 
-    int newCap = ArrayList::cap;
-
     // extend cap if the new appended val will exceed current cap
     if (ArrayList::size == ArrayList::cap) {
-        newCap = newCap + newCap;
-        ArrayList::cap = newCap;
+        ArrayList::cap = ArrayList::cap*2;
     }
 
     // init new array
-    int* newArr = new int[newCap];
+    int* newArr = new int[ArrayList::cap];
 
     // copy current array into new array
-    if (size + 1 > 0) {
-        for (int i = 0; i < ArrayList::size - 1; ++i) {
+    if (ArrayList::size > 0) {
+        for (int i = 0; i < ArrayList::size; ++i) {
             newArr[i] = ArrayList::arr[i];
         }
     }
@@ -54,13 +50,9 @@ void ArrayList::append(int value){
     //append new value to end of new array
     newArr[ArrayList::size] = value;
 
-    //std::cout << newArr[0] << std::endl;
-
     //delete old array and replace with new one
     delete [] ArrayList::arr;
     ArrayList::arr = newArr;
-
-    //std::cout << ArrayList::arr[0] << std::endl;
 
     //update size
     ArrayList::size++;
