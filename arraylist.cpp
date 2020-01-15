@@ -23,7 +23,9 @@ std::string ArrayList::toString() const {
     string return_str = "[";
     for (int i = 0; i < ArrayList::size; ++i) {
         return_str.append(to_string(ArrayList::arr[i]));
-        return_str.append(", ");
+        if (i < ArrayList::size - 1){
+            return_str.append(", ");
+        }
     }
     return_str.append("]");
 
