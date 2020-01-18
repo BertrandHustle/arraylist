@@ -60,3 +60,29 @@ void ArrayList::append(int value){
     ArrayList::size++;
 
 };
+
+void ArrayList::prepend(int value){
+    
+    // extend cap if the new appended val will exceed current cap
+    if (ArrayList::size == ArrayList::cap) {
+        ArrayList::cap = ArrayList::cap*2;
+    }
+
+    // init new array
+    int* newArr = new int[ArrayList::cap];
+
+    // copy current array into new array after prepending w/new value
+
+    newArr[0] = value;
+
+    for (int i = 0; i < ArrayList::size; ++i) {
+        newArr[i+1] = ArrayList::arr[i];
+    }
+
+    //delete old array and replace with new one
+    delete [] ArrayList::arr;
+    ArrayList::arr = newArr;
+
+    //update size
+    ArrayList::size++;
+}
