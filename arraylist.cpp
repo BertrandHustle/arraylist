@@ -4,9 +4,9 @@
 // Class constructor
 ArrayList::ArrayList(int init_cap){
     int* newArr = new int[init_cap];
-    ArrayList::arr = newArr;
-    ArrayList::cap = init_cap;
-    ArrayList::size = 0;
+    arr = newArr;
+    cap = init_cap;
+    size = 0;
 };
 
 int ArrayList::capacity() const{
@@ -21,9 +21,9 @@ std::string ArrayList::toString() const {
     using namespace std;
 
     string return_str = "[";
-    for (int i = 0; i < ArrayList::size; ++i) {
-        return_str.append(to_string(ArrayList::arr[i]));
-        if (i < ArrayList::size - 1){
+    for (int i = 0; i < size; ++i) {
+        return_str.append(to_string(arr[i]));
+        if (i < size - 1){
             return_str.append(", ");
         }
     }
@@ -35,30 +35,35 @@ std::string ArrayList::toString() const {
 void ArrayList::append(int value){
 
     // extend cap if the new appended val will exceed current cap
-    if (ArrayList::size == ArrayList::cap) {
-        ArrayList::cap = ArrayList::cap*2;
+    if (size == cap) {
+        cap = cap*2;
     }
 
     // init new array
-    int* newArr = new int[ArrayList::cap];
+    int* tempArr = new int[cap];
 
     // copy current array into new array
-    if (ArrayList::size > 0) {
-        for (int i = 0; i < ArrayList::size; ++i) {
-            newArr[i] = ArrayList::arr[i];
+    if (size > 0) {
+        for (int i = 0; i < size; ++i) {
+            tempArr[i] = arr[i];
         }
     }
 
     //append new value to end of new array
-    newArr[ArrayList::size] = value;
+    tempArr[size] = value;
 
     //delete old array and replace with new one
-    delete [] ArrayList::arr;
-    ArrayList::arr = newArr;
+    delete [] arr;
+    arr = tempArr;
+
+    std::cout << arr[0] << std::endl;
+    std::cout << arr[1] << std::endl;
+    std::cout << arr[2] << std::endl;
+    std::cout << arr[3] << std::endl;
+    std::cout << arr[4] << std::endl;
 
     //update size
-    ArrayList::size++;
-
+    size++;
 };
 
 void ArrayList::prepend(int value){

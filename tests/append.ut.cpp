@@ -4,22 +4,32 @@
 TEST(all_tests, testAppend){
     ArrayList al(5);
 
-    int testVal = 777;
-    al.append(testVal);
+    EXPECT_EQ(al.getSize(), 0);
+
+    std::cout << al.arr[0] << std::endl;
+    std::cout << al.arr[1] << std::endl;
+    std::cout << al.arr[2] << std::endl;
+    std::cout << al.arr[3] << std::endl;
+    std::cout << al.arr[4] << std::endl;
+
+    //std::cout << al.arr[0] << std::endl;
+    al.append(777);
+
+    std::cout << al.arr[0] << std::endl;
+    std::cout << al.arr[1] << std::endl;
+    std::cout << al.arr[2] << std::endl;
+    std::cout << al.arr[3] << std::endl;
+    std::cout << al.arr[4] << std::endl;
 
     //std::cout << al.getSize() << std::endl;
     //std::cout << al.arr[0] << std::endl;
 
     EXPECT_EQ(al.getSize(), 1);
-    EXPECT_EQ(al.arr[al.getSize()-1], 777);
+    EXPECT_EQ(al.arr[0], 777);
 
-    int testVal2 = 999;
-    al.append(testVal2);
-
-    std::cout << al.getSize() << std::endl;
-    std::cout << al.arr[1] << std::endl;
+    al.append(999);
 
     EXPECT_EQ(al.getSize(), 2);
-    EXPECT_EQ(al.arr[al.getSize()-1], 999);
+    EXPECT_EQ(al.arr[1], 999);
     EXPECT_EQ(al.arr[0], 777);
 }

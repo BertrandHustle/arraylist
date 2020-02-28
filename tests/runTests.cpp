@@ -1,3 +1,6 @@
+
+//g++ tests/runTests.cpp tests/capacity.ut.cpp arraylist.cpp -L/usr/lib -lgtest -lgtest_main -pthread
+
 #include <gtest/gtest.h>
 int main(int argc, char** argv)
 {

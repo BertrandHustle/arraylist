@@ -6,10 +6,12 @@ class ArrayList{
         // max capacity of the arraylist
         int cap;
         // size of the arraylist (number of used elements)
-        size_t size;
+        size_t size = 0;
         // Class constructor
-        int* arr = new int[0];
+        int* arr = new int[cap];
         ArrayList(int cap);
+        // Copies values from one array (fromCopy) to another (toCopy)
+        void copy(ArrayList fromCopy, ArrayList toCopy);
         // Adds the given value to the "end" of the list.
         // An append of 7 to a list containing [1, 5, 14] will result in a list
         // containing [1, 5, 14, 7]
