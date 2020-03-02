@@ -3,8 +3,7 @@
 
 // Class constructor
 ArrayList::ArrayList(int init_cap){
-    int* newArr = new int[init_cap];
-    arr = newArr;
+    arr = new int[init_cap];
     cap = init_cap;
     size = 0;
 };
@@ -55,12 +54,6 @@ void ArrayList::append(int value){
     //delete old array and replace with new one
     delete [] arr;
     arr = tempArr;
-
-    std::cout << arr[0] << std::endl;
-    std::cout << arr[1] << std::endl;
-    std::cout << arr[2] << std::endl;
-    std::cout << arr[3] << std::endl;
-    std::cout << arr[4] << std::endl;
 
     //update size
     size++;

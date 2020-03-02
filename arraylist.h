@@ -8,7 +8,7 @@ class ArrayList{
         // size of the arraylist (number of used elements)
         size_t size = 0;
         // Class constructor
-        int* arr = new int[cap];
+        int* arr;
         ArrayList(int cap);
         // Copies values from one array (fromCopy) to another (toCopy)
         void copy(ArrayList fromCopy, ArrayList toCopy);

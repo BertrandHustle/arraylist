@@ -28,6 +28,12 @@ TEST(all_tests, testAppend){
     EXPECT_EQ(al.arr[0], 777);
 
     al.append(999);
+    
+    std::cout << al.arr[0] << std::endl;
+    std::cout << al.arr[1] << std::endl;
+    std::cout << al.arr[2] << std::endl;
+    std::cout << al.arr[3] << std::endl;
+    std::cout << al.arr[4] << std::endl;
 
     EXPECT_EQ(al.getSize(), 2);
     EXPECT_EQ(al.arr[1], 999);
