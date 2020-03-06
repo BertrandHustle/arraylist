@@ -32,7 +32,7 @@ std::string ArrayList::toString() const {
 }
 
 int* ArrayList::copy(){
-    int* toCopy;
+    int* toCopy = new int[cap];
     for (int i = 0; i < size; ++i) {
         toCopy[i] = arr[i];
     }
