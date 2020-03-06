@@ -39,29 +39,22 @@ int* ArrayList::copy(){
     return toCopy;
 }
 
+void ArrayList::extend(){
+    cap = cap*2;
+    int* tempArr = copy();
+    delete arr;
+    arr = tempArr;
+}
+
 void ArrayList::append(int value){
 
     // extend cap if the new appended val will exceed current cap
     if (size == cap) {
-        cap = cap*2;
-    }
-
-    // init new array
-    int* tempArr = new int[cap];
-
-    // copy current array into new array
-    if (size > 0) {
-        for (int i = 0; i < size; ++i) {
-            tempArr[i] = arr[i];
-        }
+        extend();
     }
 
     //append new value to end of new array
-    tempArr[size] = value;
-
-    //delete old array and replace with new one
-    delete [] arr;
-    arr = tempArr;
+    arr[size] = value;
 
     //update size
     size++;
@@ -70,25 +63,22 @@ void ArrayList::append(int value){
 void ArrayList::prepend(int value){
     
     // extend cap if the new appended val will exceed current cap
-    if (ArrayList::size == ArrayList::cap) {
-        ArrayList::cap = ArrayList::cap*2;
+    if (size == cap) {
+        extend();
     }
 
-    // init new array
-    int* newArr = new int[ArrayList::cap];
-
-    // copy current array into new array after prepending w/new value
-
-    newArr[0] = value;
-
-    for (int i = 0; i < ArrayList::size; ++i) {
-        newArr[i+1] = ArrayList::arr[i];
+    // shift values over one
+    if (size > 0) {
+        for (int i = size; i >= 0; --i) {
+            std::cout << size << std::endl;
+            arr[i] = arr[i-1];
+        }
     }
 
-    //delete old array and replace with new one
-    delete [] ArrayList::arr;
-    ArrayList::arr = newArr;
+    arr[0] = value;
 
     //update size
-    ArrayList::size++;
+    size++;
 }
+
+void insert(size_t index, int value);

@@ -12,6 +12,8 @@ class ArrayList{
         ArrayList(int cap);
         // Copies values from one array (fromCopy) to another (toCopy)
         int* copy();
+        // copies current array to bigger array if capacity is exceeded
+        void extend();
         // Adds the given value to the "end" of the list.
         // An append of 7 to a list containing [1, 5, 14] will result in a list
         // containing [1, 5, 14, 7]
