@@ -31,6 +31,14 @@ std::string ArrayList::toString() const {
     return return_str;
 }
 
+int* ArrayList::copy(){
+    int* toCopy;
+    for (int i = 0; i < size; ++i) {
+        toCopy[i] = arr[i];
+    }
+    return toCopy;
+}
+
 void ArrayList::append(int value){
 
     // extend cap if the new appended val will exceed current cap
