@@ -81,23 +81,33 @@ void ArrayList::prepend(int value){
 }
 
 void ArrayList::insert(size_t index, int value){
-
     // shift array over by one to accomodate insert
     if (index < size){
-
         // extend cap if the new appended val will exceed current cap
         if (size == cap) {
             extend();
         }
-
         for (int i = size; i >= index; i--){
             arr[i+1] = arr[i];
         }
-        
         arr[index] = value;
-
         //update size
         size++;        
+    }
+    else{
+        printf("ARRAY OUT OF BOUNDS");
+        throw 1;
+    }
+}
+
+void ArrayList::remove(size_t index){
+    // shift array over by one to accomodate insert
+    if (index < size){
+        for (int i = size; i <= index; i--){
+            arr[i-1] = arr[i];
+        }
+        //update size
+        size--;        
     }
     else{
         printf("ARRAY OUT OF BOUNDS");
@@ -108,5 +118,9 @@ void ArrayList::insert(size_t index, int value){
 int ArrayList::valueAt(size_t index) const{
     if (index < size){
         return arr[index];
+    }
+    else{
+        printf("ARRAY OUT OF BOUNDS");
+        throw 1;
     }
 }
