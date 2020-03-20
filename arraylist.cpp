@@ -43,9 +43,6 @@ void ArrayList::extend(){
     cap = cap*2;
     int* tempArr = ArrayList::copy();
     delete [] arr;
-    for (int i = 0; i < 10; ++i) {
-		std::cout << tempArr[i] << std::endl;
-	}
     arr = tempArr;
 }
 
@@ -73,7 +70,6 @@ void ArrayList::prepend(int value){
     // shift values over one
     if (size > 0) {
         for (int i = size; i >= 0; --i) {
-            std::cout << size << std::endl;
             arr[i] = arr[i-1];
         }
     }
@@ -84,4 +80,22 @@ void ArrayList::prepend(int value){
     size++;
 }
 
-void insert(size_t index, int value);
+void ArrayList::insert(size_t index, int value){
+
+     // extend cap if the new appended val will exceed current cap
+    if (size == cap) {
+        extend();
+    }
+
+    // shift array over by one to accomodate insert
+    if (index < size){
+        for (int i = size; i >= index; i--){
+            arr[i+1] = arr[i];
+        }        
+    }
+
+    arr[index] = value;
+
+     //update size
+    size++;
+}
