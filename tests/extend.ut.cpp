@@ -8,9 +8,10 @@ TEST(all_tests, testAppend){
         al.append(i);
     };
 
-    EXPECT_EQ(al.getSize(), 5);
+    EXPECT_EQ(al.cap, 5);
 
     al.append(6);
 
-    EXPECT_EQ(al.getSize(), 10);
+    EXPECT_EQ(al.cap, 10);
+    EXPECT_EQ(al.arr[5], 6);
 }

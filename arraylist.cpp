@@ -42,7 +42,10 @@ int* ArrayList::copy(){
 void ArrayList::extend(){
     cap = cap*2;
     int* tempArr = ArrayList::copy();
-    delete arr;
+    delete [] arr;
+    for (int i = 0; i < 10; ++i) {
+		std::cout << tempArr[i] << std::endl;
+	}
     arr = tempArr;
 }
 
@@ -50,7 +53,7 @@ void ArrayList::append(int value){
 
     // extend cap if the new appended val will exceed current cap
     if (size == cap) {
-        ArrayList::extend();
+        extend();
     }
 
     //append new value to end of new array
