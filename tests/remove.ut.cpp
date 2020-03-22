@@ -8,7 +8,7 @@ TEST(all_tests, testInsert){
         al.append(i);
     };
 
-    al.remove(2) ;
+    al.remove(2);
 
     EXPECT_EQ(al.toString(), "[1, 2, 4, 5]");
 }

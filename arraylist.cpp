@@ -103,9 +103,11 @@ void ArrayList::insert(size_t index, int value){
 void ArrayList::remove(size_t index){
     // shift array over by one to accomodate insert
     if (index < size){
-        for (int i = size; i <= index; i--){
-            arr[i-1] = arr[i];
+        for (int i = index; i <= size-1; i++){
+            arr[i] = arr[i+1];
         }
+        //delete leftover end of array
+        arr[size-1] = 0;
         //update size
         size--;        
     }
